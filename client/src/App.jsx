@@ -11,6 +11,7 @@ import UserBlogs from "./components/UserBlogs";
 import BlogDetail from "./components/BlogDetail";
 import EditBlog from "./components/EditBlog";
 import { useSelector } from "react-redux";
+import Footer from './components/Footer';
 
 const App = () => {
   // Accessing the Redux state to check if the user is logged in
@@ -46,6 +47,7 @@ const App = () => {
         />
         {/* Protected route: Only accessible when logged in */}
       </Routes>
+      <Footer></Footer>
     </Router>
   );
 };

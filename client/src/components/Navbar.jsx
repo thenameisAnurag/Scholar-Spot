@@ -5,12 +5,8 @@ import { authActions } from '../store';
 import Modal from './Modal';
 import { FaUserCircle } from "react-icons/fa";
 import Logo from "../assets/Logo.png";
-import { IoMdCloseCircle, IoMdMenu } from "react-icons/io";
-
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to handle mobile menu
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState('login');
   const [isProfileOpen, setIsProfileOpen] = useState(false); // State to handle profile dropdown
@@ -56,17 +52,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className=" shadow-2xl p-4 flex justify-between items-center px-10">
-      <div className="text-white text-lg font-bold">
-        <img className='w-32' src={Logo} alt="" />
+    <nav className=" shadow-2xl p-4 bg-black flex justify-between items-center">
+      <div className="text-white text-lg font-bold">Logo
       </div>
       <ul className="flex space-x-4">
-        <li><Link to="/" className="text-slate-800 font-medium text-xl  hover:font-semibold hover:text-blue-700 hover:bg-yellow-200 px-2 rounded-lg py-1">Home</Link></li>
-        <li><Link to="/scholarships" className="text-slate-800 font-medium text-xl hover:font-semibold hover:text-blue-700 hover:bg-yellow-200 px-2 rounded-lg py-1 ">Scholarships</Link></li>
-        <li><Link to="/blogs" className="text-slate-800 font-medium text-xl  hover:font-semibold hover:text-blue-700 hover:bg-yellow-200 px-2 rounded-lg py-1">Blogs</Link></li>
-        {isLoggedIn ?         <li><Link to="/myblogs" className="text-slate-800 font-medium text-xl  hover:font-semibold hover:text-blue-700 hover:bg-yellow-200 px-2 rounded-lg py-1">My Blogs</Link></li>
- : ""        }
-        <li><Link to="/about" className="text-slate-800 font-medium text-xl hover:font-semibold hover:text-blue-700 hover:bg-yellow-200 px-2 rounded-lg py-1">About Us</Link></li>
+        <li><Link to="/" className="text-white">Home</Link></li>
+        <li><Link to="/scholarships" className="text-white">Scholarships</Link></li>
+        <li><Link to="/blogs" className="text-white">Blogs</Link></li>
+        <li><Link to="/myblogs" className="text-white">My Blogs</Link></li>
+        <li><Link to="/about" className="text-white">About Us</Link></li>
       </ul>
       <div className="flex space-x-2">
         {isLoggedIn ? (
@@ -92,13 +86,13 @@ const Navbar = () => {
         ) : (
           <>
             <button
-              className="bg-yellow-300 font-medium text-lg text-blue-600 px-4 py-1 rounded"
+              className="bg-white text-blue-600 px-4 py-2 rounded"
               onClick={() => openModal('login')}
             >
               Login
             </button>
             <button
-              className="bg-white text-blue-600 px-4 py-2 rounded text-lg font-semibold border-2"
+              className="bg-white text-blue-600 px-4 py-2 rounded"
               onClick={() => openModal('register')}
             >
               Register
