@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Popup Form</title>
+  <style>
+nav {
+  background-color: #333;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+    #loginPopup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#loginPopup.visible {
+  opacity: 1;
+}
+
+#popupContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#popupContent.visible {
+  opacity: 1;
+}
+
+#closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#closeBtn:hover {
+  color: red;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+    
+  </style>
+  
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Scholarships</a>
+            <div class="dropdown-content">
+              <a href="#">Service 1</a>
+              <a href="#">Service 2</a>
+              <a href="#">Service 3</a>
+            </div>
+          </li>
+          <li><a href="#">Contact</a></li>
+          <button id="openBtn">Login</button>
+        </ul>
+      </nav>
+    
+      <h1>Welcome to My Website</h1>
+  
+
+  <div id="loginPopup">
+    <div id="popupContent">
+      <span id="closeBtn">&times;</span>
+      <h2>Login</h2>
+      <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="Login">
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("openBtn").addEventListener("click", function() {
+  document.getElementById("loginPopup").style.display = "block";
+  setTimeout(function() {
+    document.getElementById("loginPopup").classList.add("visible");
+    document.getElementById("popupContent").classList.add("visible");
+  }, 10);
+});
+
+document.getElementById("closeBtn").addEventListener("click", function() {
+  document.getElementById("loginPopup").classList.remove("visible");
+  document.getElementById("popupContent").classList.remove("visible");
+  setTimeout(function() {
+    document.getElementById("loginPopup").style.display = "none";
+  }, 300);
+});
+
+document.getElementById("loginPopup").addEventListener("click", function(event) {
+  if (event.target === this) {
+    document.getElementById("loginPopup").classList.remove("visible");
+    document.getElementById("popupContent").classList.remove("visible");
+    setTimeout(function() {
+      document.getElementById("loginPopup").style.display = "none";
+    }, 300);
+  }
+});
+
+  </script>
+</body>
+</html>
