@@ -48,8 +48,8 @@ const UserBlogs = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">My Blogs</h1>
+    <div className="p-4 w-7/12 mx-auto">
+      <h1 className="text-2xl font-bold text-center mb-4">My Blogs</h1>
       {userBlogs.length === 0 ? (
         <p>No blogs available</p>
       ) : (
@@ -61,7 +61,7 @@ const UserBlogs = () => {
                 <img
                   src={`http://localhost:5000/${blog.image_url}`}
                   alt={blog.title}
-                  className="mt-2 w-full h-48 object-cover"
+                  className="mt-2 w-full h-48 object-contain"
                 />
               )}
               <div className="mt-2 flex gap-2">
